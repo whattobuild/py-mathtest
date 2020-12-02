@@ -155,7 +155,7 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--min_number', type=int, default=1, help='题目中出现的最小数字，默认为%(default)s')
     parser.add_argument('-x', '--max_number', type=int, default=50, help='题目中出现的最大数字，默认为%(default)s')
     parser.add_argument('-n', '--number', type=int, default=2, help='算式由多少个数字构成，默认为%(default)s')
-    parser.add_argument('-w', '--with_answer', action='count', help='是否显示答案，默认为不显示')
+    parser.add_argument('-w', '--with_answer', action='count', help='生成显示答案的试题')
     parser.add_argument('-g', '--negative', action='count', help='允许减法运算结果出现负数，即允许生成的题目中被减数小于减数。')
 
     args = parser.parse_args()
