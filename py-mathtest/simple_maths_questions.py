@@ -53,14 +53,14 @@ def gen_one_question_not_negative(min_number, max_number, num_of_numbers):
     :param num_of_numbers: int型，组成算式的数字数量
     :return: 结果list
     """
-    a_fs = gen_one_question(min_number, max_number, num_of_numbers)
+    a_fs = list(gen_one_question(min_number, max_number, num_of_numbers))
     if num_of_numbers == 2:
-        if a_fs[1].strip() == '-' and int(a_fs[0].strip('(').strip(')')) < int(a_fs[2].strip('(').strip(')')):
+        if a_fs[1].strip() == '-' and int(a_fs[0].strip('()')) < int(a_fs[2].strip('()')):
             a_fs[0], a_fs[2] = a_fs[2], a_fs[0]
         return a_fs
     gen_times = 1
     while eval(' '.join(a_fs)) < 0:
-        a_fs = gen_one_question(min_number, max_number, num_of_numbers)
+        a_fs = list(gen_one_question(min_number, max_number, num_of_numbers))
         print('gen times: {}'.format(gen_times))
         gen_times += 1
 
@@ -93,7 +93,7 @@ def trim_parameters(first_num, second_num, num_of_nums, the_quantity, negative, 
 
     the_quantity = max(1, the_quantity)
 
-    if negative:
+    if not negative:
         min_numb = max(0, min_numb)
 
     return min_numb, max_numb, numbers, the_quantity
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     parser.add_argument('-x', '--max_number', type=int, default=50, help='题目中出现的最大数字，默认为%(default)s')
     parser.add_argument('-n', '--number', type=int, default=2, help='算式由多少个数字构成，默认为%(default)s')
     parser.add_argument('-w', '--with_answer', action='count', help='生成显示答案的试题')
-    parser.add_argument('-g', '--negative', action='count', help='允许减法运算结果出现负数，即允许生成的题目中被减数小于减数。')
+    parser.add_argument('-g', '--negative', action='count', help='允许在算式和运算结果中出现负数，不加该选项时为不允许。')
 
     args = parser.parse_args()
 
