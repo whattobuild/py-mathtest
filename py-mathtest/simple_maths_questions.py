@@ -113,9 +113,9 @@ def gen_questions(min_number, max_number, num_of_numbers, the_quantity, negative
     while len(questions) < the_quantity:
         question_str = ''
         if not negative_flag:
-            question_str = ' '.join(gen_one_question(min_number, max_number, num_of_numbers))
-        else:
             question_str = ' '.join(gen_one_question_not_negative(min_number, max_number, num_of_numbers))
+        else:
+            question_str = ' '.join(gen_one_question(min_number, max_number, num_of_numbers))
 
         if question_str not in questions:
             questions.append(question_str)
