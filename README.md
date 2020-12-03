@@ -2,6 +2,38 @@
 A tool that can randomly generates simple add and subtract questions.
 一个用来生成简单加减法数学题目的Python程序
 
+包安装方法：
+pip3 install pymathtest
+
+
+使用方法：
+命令行形式：
+>python3 simple_maths_questions.py
+获取帮助信息：
+>python3 simple_maths_question.py -h
+usage: simple_maths_questions.py [-h] [-q QUANTITY] [-m MIN_NUMBER] [-x MAX_NUMBER] [-n NUMBER] [-w] [-g]
+
+生成指定数量的简单加减法数学题
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -q QUANTITY, --quantity QUANTITY
+                        生成题目的数量，默认为20,最多200题
+  -m MIN_NUMBER, --min_number MIN_NUMBER
+                        题目中出现的最小数字，默认为1
+  -x MAX_NUMBER, --max_number MAX_NUMBER
+                        题目中出现的最大数字，默认为50
+  -n NUMBER, --number NUMBER
+                        算式由多少个数字构成，默认为2
+  -w, --with_answer     生成显示答案的试题
+  -g, --negative        允许在算式和运算结果中出现负数，不加该选项时为不允许。
+
+
+包引用使用方法：
+from pymathtest import simple_maths_question as smq
+其中最主要两个用到的函数是：gen_questions和gen_question_with_answers，详情请见下面帮助文档。
+
+
 
 NAME simple_maths_questions - # --coding: utf-8 --
 
