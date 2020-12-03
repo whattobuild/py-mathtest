@@ -1,4 +1,4 @@
-# py-mathtest
+# pymathtest
 A tool that can randomly generates simple add and subtract questions.
 一个用来生成简单加减法数学题目的Python程序
 
